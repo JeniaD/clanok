@@ -1,6 +1,6 @@
 % Metódy inžinierskej práce
 
-\documentclass[10pt,twoside,slovak,a4paper]{article}
+\documentclass[10pt,twocolumn,twoside,slovak,a4paper]{report} % coursepaper
 
 \usepackage[slovak]{babel}
 %\usepackage[T1]{fontenc}
@@ -13,18 +13,19 @@
 \usepackage{cite}
 %\usepackage{times}
 
+\graphicspath{ {./images/} }
+
 \pagestyle{headings}
 
-\title{Názov\thanks{Semestrálny projekt v predmete Metódy inžinierskej práce, ak. rok 2015/16, vedenie: Meno Priezvisko}} % meno a priezvisko vyučujúceho na cvičeniach
+\title{Personalized recommendation systems in social media\thanks{Semestrálny projekt v predmete Metódy inžinierskej práce, ak. rok 2024/25, vedenie: Ing. Richard Marko, PhD.}} % meno a priezvisko vyučujúceho na cvičeniach
 
-\author{Meno Priezvisko\\[2pt]
-	{\small Slovenská technická univerzita v Bratislave}\\
-	{\small Fakulta informatiky a informačných technológií}\\
-	{\small \texttt{...@stuba.sk}}
+\author{Yevhenii Deshchenko\\[2pt]
+	{\small Slovak technical university in Bratislava}\\
+	{\small Fakulty of informatics and information technology}\\
+	{\small \texttt{xdeshchenko@stuba.sk}}
 	}
 
-\date{\small 30. september 2015} % upravte
-
+\date{\small 10. october 2024} % upravte
 
 
 \begin{document}
@@ -32,10 +33,21 @@
 \maketitle
 
 \begin{abstract}
-\ldots
+With the growing popularity of social media, recommendation systems have become increasingly complex and sophisticated.
+These systems rely on a variety of algorithms, including those based on graph theory, statistics, machine and deep learning.
+Content-based recommendation systems vary significantly across many different social media platforms, as they depend on the
+type of primary content users share and the options provided for user interaction with the content.
+Most approaches use as much data as available, leading to massive data collection that raises multiple concerns, such as privacy issues.
+
+As social media platforms continue to grow in popularity, the inner workings of these algorithms are often kept secret,
+as they have become valuable tools for third parties seeking to exploit them for visibility and influence.
+This exploitation frequently aims to push content with political or other agendas, in an effort to gain popularity on these platforms.
+However, there are exceptions, such as Twitter, which made its recommendation algorithm public after a data breach.
+This decision led to significant criticism from its user base. The secrecy and potential for manipulation continue to spark debates
+about the role and transparency of recommendation systems in shaping user experiences and content visibility on social media.
 \end{abstract}
 
-
+\includegraphics[width=\textwidth]{fiit.eps}
 
 \section{Úvod}
 
@@ -45,7 +57,6 @@ Uveďte explicitne štruktúru článku. Tu je nejaký príklad.
 Základný problém, ktorý bol naznačený v úvode, je podrobnejšie vysvetlený v časti~\ref{nejaka}.
 Dôležité súvislosti sú uvedené v častiach~\ref{dolezita} a~\ref{dolezitejsia}.
 Záverečné poznámky prináša časť~\ref{zaver}.
-
 
 
 \section{Nejaká časť} \label{nejaka}
@@ -59,7 +70,6 @@ Aj text môže byť prezentovaný ako obrázok. Stane sa z neho označný pláva
 \caption{Rozhodujúci argument.}
 \label{f:rozhod}
 \end{figure*}
-
 
 
 \section{Iná časť} \label{ina}
