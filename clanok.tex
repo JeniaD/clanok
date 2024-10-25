@@ -1,13 +1,11 @@
-% Methods of Engineering Work
-
-\documentclass[10pt,twocolumn,twoside,a4paper]{report} % course paper
+\documentclass[10pt,twocolumn,twoside,a4paper]{report}
 
 \usepackage[slovak,english]{babel}
-\usepackage[IL2]{fontenc} % better font encoding for Slovak letters like Ľ
+\usepackage[IL2]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\usepackage{url} % command \url for formatting URLs
-\usepackage{hyperref} % hyperlinks in the text (may cause text shifting with certain document classes)
+\usepackage{url}
+\usepackage{hyperref}
 
 \usepackage{cite}
 
@@ -15,7 +13,7 @@
 
 \pagestyle{headings}
 
-\title{Personalized Recommendation Systems in Social Media\thanks{Semester project for the course Methods of Engineering Work, academic year 2024/25, supervised by Ing. Richard Marko, PhD.}} % name and title of the course supervisor
+\title{Personalized Recommendation Systems in Social Media\thanks{Semester project for the course Engineering Methods, academic year 2024/25, supervised by Ing. Richard Marko, PhD.}} % name and title of the course supervisor
 
 \author{Yevhenii Deshchenko\\[2pt]
 	{\small Slovak Technical University in Bratislava}\\
@@ -23,91 +21,53 @@
 	{\small \texttt{xdeshchenko@stuba.sk}}
 	}
 
-\date{\small 10 October 2024} % adjust as needed
+\date{\small 10 October 2024}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-With the growing popularity of social media, recommendation systems have become increasingly complex and sophisticated.
-These systems rely on a variety of algorithms, including those based on graph theory, statistics, machine learning, and deep learning.
-Content-based recommendation systems vary significantly across many different social media platforms, as they depend on the type of primary content users share and the options provided for user interaction with the content.
+With the growing popularity of social media, recommendation systems have become increasingly complex and sophisticated. 
+These systems rely on a variety of algorithms, including those based on graph theory, statistics, machine and deep learning. 
+Content-based recommendation systems vary significantly across many different social media platforms, as they depend on the 
+type of primary content users share and the options provided for user interaction with the content. 
 Most approaches use as much data as available, leading to massive data collection that raises multiple concerns, such as privacy issues.
 
-As social media platforms continue to grow in popularity, the inner workings of these algorithms are often kept secret, as they have become valuable tools for third parties seeking to exploit them for visibility and influence.
+
+As social media platforms continue to grow in popularity, the inner workings of these algorithms are often kept secret,
+as they have become valuable tools for third parties seeking to exploit them for visibility and influence.
 This exploitation frequently aims to push content with political or other agendas, in an effort to gain popularity on these platforms.
 However, there are exceptions, such as Twitter, which made its recommendation algorithm public after a data breach.
-This decision led to significant criticism from its user base. The secrecy and potential for manipulation continue to spark debates about the role and transparency of recommendation systems in shaping user experiences and content visibility on social media.
+This decision led to significant criticism from its user base. The secrecy and potential for manipulation continue to
+spark debates about the role and transparency of recommendation systems in shaping user experiences and content visibility on social media.
 \end{abstract}
 
-\includegraphics[width=\textwidth]{fiit.eps}
+% \includegraphics[width=\textwidth]{fiit.eps}
 
 \section{Introduction}
 
-Motivate the reader and explain the topic you are discussing. The introduction is usually not divided into subsections.
+In a modern era where social media has become an integral part of daily life, personalized recommendation systems play a
+crucial role in enhancing marketing, entertainment, and the overall user experience. By predicting and delivering content
+that resonates with users, these systems contribute significantly to social media growth, fostering higher user engagement
+and supporting an interconnected ecosystem of content creators, businesses, and users alike.
 
-Explicitly state the structure of the paper. Here’s an example.
-The fundamental problem mentioned in the introduction is explained in more detail in Section~\ref{some_section}.
-Important connections are presented in Sections~\ref{important_section} and~\ref{more_important_section}.
-Final remarks are provided in Section~\ref{conclusion}.
+While these systems are built upon statistical and mathematical foundations, practical implementations vary widely.
+They often combine several approaches, including complex algorithms, databases, big data analytics, machine learning,
+and deep learning techniques, to optimize predictions and deliver tailored content. 
+
+However, the reliance on extensive user data raises privacy concerns, as large amounts of personal information must
+be stored and processed. Additionally, biases within these algorithms can lead to unintended consequences, potentially
+skewing recommendations or enabling exploitation. This paper will explore the methodologies behind recommendation systems,
+their societal impacts, and the balance between personalization and ethical considerations.
 
 \section{Some Section} \label{some_section}
 
-From Fig.~\ref{f:decision}, everything is clear. 
-
-\begin{figure*}[tbh]
-\centering
-%\includegraphics[scale=1.0]{diagram.pdf}
-Text can also be presented as an image. It becomes a floating object. After creating the diagram, remove the \texttt{\%} symbol in front of the \verb|\includegraphics| command to include the diagram, and mark this line as a comment (again using the \texttt{\%} symbol).
-\caption{Decisive argument.}
-\label{f:decision}
-\end{figure*}
-
-\section{Another Section} \label{another_section}
-
-The fundamental problem is thus\ldots{} First, we will look at some explanation (Section~\ref{another:some_explanation}), and then another one (Section~\ref{another:more_explanation}).\footnote{Sometimes you may need a footnote.}
-
-It may seem that the problem does not actually exist\cite{Coplien:MPD}, but it has been proven that this is not the case~\cite{Czarnecki:Staged, Czarnecki:Progress}. Nevertheless, even today, we come across various dubious opinions on the web\cite{PLP-Framework}. Important points can be \emph{emphasized using italics}.
-
-\subsection{Some Explanation} \label{another:some_explanation}
-
-Sometimes you need to provide a list:
-
-\begin{itemize}
-\item one item
-\item another item
-	\begin{itemize}
-	\item sub-item x
-	\item sub-item y
-	\end{itemize}
-\end{itemize}
-
-The same list, but numbered:
-
-\begin{enumerate}
-\item one item
-\item another item
-	\begin{enumerate}
-	\item sub-item x
-	\item sub-item y
-	\end{enumerate}
-\end{enumerate}
-
-\subsection{More Explanation} \label{another:more_explanation}
-
-\paragraph{A very important note.}
-Sometimes a paragraph needs a heading. The text continues immediately after the heading.
-
-\section{Important Section} \label{important_section}
-
-\section{More Important Section} \label{more_important_section}
-
-\section{Conclusion} \label{conclusion} % or other variant of the section title
+\section{Conclusion} \label{conclusion}
 
 %\acknowledgement{If you want to thank someone\ldots}
 
-% This generates the bibliography from the content of the literatura.bib file, based on what is cited in the paper
+\nocite{*}
 \bibliography{literatura}
 \bibliographystyle{plain} % or alpha, abbrv, or any other style
 \end{document}
