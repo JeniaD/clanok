@@ -45,7 +45,7 @@ spark debates about the role and transparency of recommendation systems in shapi
 
 % \includegraphics[width=\textwidth]{fiit.eps}
 
-\section{Introduction}
+\section{Introduction} 
 
 In a modern era where social media has become an integral part of daily life, personalized recommendation systems play a
 crucial role in enhancing marketing, entertainment, and the overall user experience. By predicting and delivering content
@@ -61,48 +61,52 @@ be stored and processed. Additionally, biases within these algorithms can lead t
 skewing recommendations or enabling exploitation. This paper will explore the methodologies behind recommendation systems,
 their societal impacts, and the balance between personalization and ethical considerations.
 
-\section{Recommendation systems overview} \label{rec_sys_overview}
-The primary goal of recommendation systems (RS) is to suggest content, connections, posts, or advertisements that may interest the end user.
-Social media, as a technology, has evolved over time and is now embedded into blogs, forums, and other digital forms,
-facilitating community building, content sharing, and information exchange \cite{anandhan2018social}.
-These systems have become integral in helping users navigate vast amounts of content efficiently, allowing platforms to deliver more personalized experiences.
+\section{Recommendation Systems Overview} \label{rec_sys_overview}
+The primary goal of recommendation systems (RS) is to suggest content, connections, posts, or advertisements that may interest the end user. Social media technology has evolved over time and is now embedded in blogs, forums, and other digital forms, facilitating community building, content sharing, and information exchange~\cite{anandhan2018social}. These systems have become integral in helping users navigate vast amounts of content efficiently, allowing platforms to deliver more personalized experiences.
 
-\subsection{Social Media overview}
-Social media platforms can be classified into few categories \cite{anandhan2018social} based on their primary function and user interaction patterns:
+\subsection{Social Media Overview}
+Social media platforms can be classified into several categories~\cite{anandhan2018social} based on their primary function and user interaction patterns:
 \begin{itemize}
-	\item \textbf{Digital Libraries:} Platforms like Pinterest and Flickr act as digital libraries where users can share, categorize, and access large collections of images, documents, or other resources. Recommendation systems on these platforms focus on content discovery, suggesting relevant media or documents based on specific determined user preferences.
-    \item \textbf{Forums:} Platforms such as Reddit and Stack Overflow allow users to engage in topic-focused discussions and information sharing. Here, recommendation systems suggest relevant threads, discussions, or posts based on user interactions and interest tags.
-    \item \textbf{Blogs:} Platforms like Medium and Tumblr are designed for content creation, where users can write articles, stories, or posts. Recommendation systems in blogs aim to match readers with articles that align with their interests, reading history, and trending topics.
-    \item \textbf{Social Networks:} Platforms such as Facebook, Instagram, and Twitter are built around user-to-user connections and content sharing. These platforms heavily rely on recommendation systems to suggest new connections, posts, and advertisements, fostering interaction between content creators, advertisers, and consumers.
-    \item \textbf{Other:} Platforms, like YouTube, which blend in themselves several of the above categories.
+    \item \textbf{Digital Libraries:} Platforms like Pinterest and Flickr act as digital libraries where users can share, categorize, and access large collections of images, documents, or other resources. Recommendation systems on these platforms focus on content discovery, suggesting relevant media or documents based on specific, determined user preferences.
+    \item \textbf{Forums:} Platforms such as Reddit and Stack Overflow allow users to engage in topic-focused discussions and share information. Here, recommendation systems suggest relevant threads, discussions, or posts based on user interactions and interest tags.
+    \item \textbf{Blogs:} Platforms like Medium and Tumblr are designed for content creation, where users can write articles, stories, or posts. Recommendation systems on blogs aim to match readers with articles that align with their interests, reading history, and trending topics.
+    \item \textbf{Social Networks:} Platforms such as Facebook, Instagram, and Twitter are built around user-to-user connections and content sharing. These platforms rely heavily on recommendation systems to suggest new connections, posts, and advertisements, fostering interaction between content creators, advertisers, and consumers.
+    \item \textbf{Other:} Platforms like YouTube blend multiple features from the above categories, creating a multi-functional space that combines video sharing, social networking, and content discovery.
 \end{itemize}
 
-One of the most widespread applications of recommendation systems is within social networks, such as Facebook, Instagram, or Twitter.
-These systems play a pivotal role in connecting content creators and advertisers with consumers by suggesting relevant posts, trending topics,
-or advertisements tailored to user preferences.
-As users engage with these platforms, recommendation systems analyze behavior, such as likes, shares, comments, and even search queries,
-to curate personalized content. This personalization aims to enhance user engagement, increase time spent on the currentplatform,
-as well as improve overall user satisfaction.
+One of the most widespread applications of recommendation systems is within social networks such as Facebook, Instagram, and Twitter. These systems play a pivotal role in connecting content creators and advertisers with consumers by suggesting relevant posts, trending topics, or advertisements tailored to user preferences. As users engage with these platforms, recommendation systems analyze behavior, including likes, shares, comments, and search queries, to curate personalized content. This personalization aims to enhance user engagement, increase time spent on the platform, and improve overall user satisfaction.
 
-\subsection{Types of recommendation systems}
-Algorithms behind personal recommendation systems are typically classified into either content-based filtering or collaborative filtering. \cite{raghavendra2018personalized}
+\subsection{Types of Recommendation Systems}
+The algorithms behind personalized recommendation systems are typically classified into content-based filtering and collaborative filtering \cite{raghavendra2018personalized}.
 
-In content-based filtering, algorithm must define or in one way or another construct a certain profile of the target user. Later, based on that
-built profile the algorithm decides what items, whether it would be posts or advertisements, would be approppreate to recommend.
-The way it works, is that it firstly considers item characteristics defined and assignes them keywords and tags. Using machine learning algorithms,
-decision trees and clustering it recommends products with similar features to those previously liked or positively reviewed. \cite{raghavendra2018personalized}\cite{contentvscollaborative}
+In content-based filtering, the algorithm constructs a profile of the target user, which is then used to determine what items—such as posts or advertisements—would be appropriate to recommend. This approach works by first identifying item characteristics and assigning them keywords and tags. Using machine learning algorithms, decision trees, and clustering techniques, the system recommends items with features similar to those previously liked or positively reviewed by the user~\cite{raghavendra2018personalized}\cite{contentvscollaborative}.
 
-In collaborative filtering, recommendation system acts based on user's behavioural analysis. 
+In collaborative filtering, the recommendation system bases its suggestions on user behavior analysis. By comparing patterns and preferences across a large user base, collaborative filtering algorithms identify similarities between users and recommend items that similar users have interacted with.
+
+Another two, less significant approaches would be based on humanistic and social information - it is when system provides recommendations by
+analyzing the information provided by users when they register, or knowledge-based, which is providing recommendations based on external knowledge
 
 \section{Data collection and privacy issues} \label{data_issues}
+With the growth of use of recommendation systems, new problems arise, such as data collection and privacy issues.
+Recommendation systems collect massive arrays of user base of each user, such as gender, location, occupation, search history, likes, views and so on.
+There are three \cite{PrivacyProtectionSurvey} main stages in the process of presonalized service that may course users privacy concerns:
+\begin{itemize}
+    \item \textbf{User Modeling:} User's personal information preferences and need are collected. This data is obtained explicitly, when provided by the user himself or herself, or implicitly, such as tracking user's search history, likes, etc. After that, this dataset should be represented by appropriate data structure of the user model for further processing and calculation. Privacy issues may arise at this stage in impoper access, collection, transmission etc.
+    \item \textbf{Calculation:} At this stage calculations are carried out to make later recommendation. Privacy issues here may arise in impoper analysis, merging of data, etc.
+    \item \textbf{Result generation:} This is the last stage where recommendation system gets results after calculation. Privacy concerns arising from this stage include impoper analysis, transmission of data, etc.
+\end{itemize}
+
 \section{Content manipulation and transparency challanges} \label{content_manipulation}
+Recommendation systems often get under certain attacks. Those malicious attacks intended to push through posts, advertisements or any other form of information
+to get maximum view. \cite{propagandasafety}
+
 \section{Future challanges in recommendation systems} \label{content_manipulation}
 
 \section{Conclusion} \label{conclusion}
 
 %\acknowledgement{If you want to thank someone\ldots}
 
-% \nocite{*}
+\nocite{*}
 \bibliography{literatura}
 \bibliographystyle{plain} % or alpha, abbrv, or any other style
 \end{document}
