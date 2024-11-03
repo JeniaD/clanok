@@ -1,4 +1,4 @@
-\documentclass[10pt,twocolumn,twoside,a4paper]{report}
+\documentclass[10pt,twocolumn,twoside,a4paper]{report} % article
 
 \usepackage[slovak,english]{babel}
 \usepackage[IL2]{fontenc}
@@ -61,13 +61,48 @@ be stored and processed. Additionally, biases within these algorithms can lead t
 skewing recommendations or enabling exploitation. This paper will explore the methodologies behind recommendation systems,
 their societal impacts, and the balance between personalization and ethical considerations.
 
-\section{Some Section} \label{some_section}
+\section{Recommendation systems overview} \label{rec_sys_overview}
+The primary goal of recommendation systems (RS) is to suggest content, connections, posts, or advertisements that may interest the end user.
+Social media, as a technology, has evolved over time and is now embedded into blogs, forums, and other digital forms,
+facilitating community building, content sharing, and information exchange \cite{anandhan2018social}.
+These systems have become integral in helping users navigate vast amounts of content efficiently, allowing platforms to deliver more personalized experiences.
+
+\subsection{Social Media overview}
+Social media platforms can be classified into few categories \cite{anandhan2018social} based on their primary function and user interaction patterns:
+\begin{itemize}
+	\item \textbf{Digital Libraries:} Platforms like Pinterest and Flickr act as digital libraries where users can share, categorize, and access large collections of images, documents, or other resources. Recommendation systems on these platforms focus on content discovery, suggesting relevant media or documents based on specific determined user preferences.
+    \item \textbf{Forums:} Platforms such as Reddit and Stack Overflow allow users to engage in topic-focused discussions and information sharing. Here, recommendation systems suggest relevant threads, discussions, or posts based on user interactions and interest tags.
+    \item \textbf{Blogs:} Platforms like Medium and Tumblr are designed for content creation, where users can write articles, stories, or posts. Recommendation systems in blogs aim to match readers with articles that align with their interests, reading history, and trending topics.
+    \item \textbf{Social Networks:} Platforms such as Facebook, Instagram, and Twitter are built around user-to-user connections and content sharing. These platforms heavily rely on recommendation systems to suggest new connections, posts, and advertisements, fostering interaction between content creators, advertisers, and consumers.
+    \item \textbf{Other:} Platforms, like YouTube, which blend in themselves several of the above categories.
+\end{itemize}
+
+One of the most widespread applications of recommendation systems is within social networks, such as Facebook, Instagram, or Twitter.
+These systems play a pivotal role in connecting content creators and advertisers with consumers by suggesting relevant posts, trending topics,
+or advertisements tailored to user preferences.
+As users engage with these platforms, recommendation systems analyze behavior, such as likes, shares, comments, and even search queries,
+to curate personalized content. This personalization aims to enhance user engagement, increase time spent on the currentplatform,
+as well as improve overall user satisfaction.
+
+\subsection{Types of recommendation systems}
+Algorithms behind personal recommendation systems are typically classified into either content-based filtering or collaborative filtering. \cite{raghavendra2018personalized}
+
+In content-based filtering, algorithm must define or in one way or another construct a certain profile of the target user. Later, based on that
+built profile the algorithm decides what items, whether it would be posts or advertisements, would be approppreate to recommend.
+The way it works, is that it firstly considers item characteristics defined and assignes them keywords and tags. Using machine learning algorithms,
+decision trees and clustering it recommends products with similar features to those previously liked or positively reviewed. \cite{raghavendra2018personalized}\cite{contentvscollaborative}
+
+In collaborative filtering, recommendation system acts based on user's behavioural analysis. 
+
+\section{Data collection and privacy issues} \label{data_issues}
+\section{Content manipulation and transparency challanges} \label{content_manipulation}
+\section{Future challanges in recommendation systems} \label{content_manipulation}
 
 \section{Conclusion} \label{conclusion}
 
 %\acknowledgement{If you want to thank someone\ldots}
 
-\nocite{*}
+% \nocite{*}
 \bibliography{literatura}
 \bibliographystyle{plain} % or alpha, abbrv, or any other style
 \end{document}
