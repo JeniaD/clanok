@@ -1,124 +1,190 @@
-% Metódy inžinierskej práce
+\documentclass[10pt,twocolumn,twoside,a4paper]{article} % report
 
-\documentclass[10pt,twoside,slovak,a4paper]{article}
-
-\usepackage[slovak]{babel}
-%\usepackage[T1]{fontenc}
-\usepackage[IL2]{fontenc} % lepšia sadzba písmena Ľ než v T1
+\usepackage[slovak,english]{babel}
+\usepackage[IL2]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\usepackage{url} % príkaz \url na formátovanie URL
-\usepackage{hyperref} % odkazy v texte budú aktívne (pri niektorých triedach dokumentov spôsobuje posun textu)
+\usepackage{url}
+\usepackage{hyperref}
 
 \usepackage{cite}
-%\usepackage{times}
+
+\graphicspath{ {./images/} }
 
 \pagestyle{headings}
 
-\title{Názov\thanks{Semestrálny projekt v predmete Metódy inžinierskej práce, ak. rok 2015/16, vedenie: Meno Priezvisko}} % meno a priezvisko vyučujúceho na cvičeniach
+\title{Personalized Recommendation Systems in Social Media\thanks{Semester project for the course Engineering Methods, academic year 2024/25, supervised by Ing. Richard Marko, PhD.}}
 
-\author{Meno Priezvisko\\[2pt]
-	{\small Slovenská technická univerzita v Bratislave}\\
-	{\small Fakulta informatiky a informačných technológií}\\
-	{\small \texttt{...@stuba.sk}}
-	}
+\author{Yevhenii Deshchenko\\[2pt]
+	{\small Slovak Technical University in Bratislava}\\
+	{\small Faculty of Informatics and Information Technology}\\
+	{\small \texttt{xdeshchenko@stuba.sk}}
+}
 
-\date{\small 30. september 2015} % upravte
-
-
+\date{\small 14 December 2024}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-\ldots
+With the growing popularity of social media, recommendation systems have become increasingly complex and sophisticated. 
+These systems rely on a variety of algorithms, including those based on graph theory, statistics, machine and deep learning. 
+Content-based recommendation systems vary significantly across many different social media platforms, as they depend on the 
+type of primary content users share and the options provided for user interaction with the content. 
+Most approaches use as much data as available, leading to massive data collection that raises multiple concerns, such as privacy issues.
+
+
+As social media platforms continue to grow in popularity, the inner workings of these algorithms are often kept secret,
+as they have become valuable tools for third parties seeking to exploit them for visibility and influence.
+This exploitation frequently aims to push content with political or other agendas, in an effort to gain popularity on these platforms.
+However, there are exceptions, such as Twitter, which made its recommendation algorithm public after a data breach.
+This decision led to significant criticism from its user base. The secrecy and potential for manipulation continue to
+spark debates about the role and transparency of recommendation systems in shaping user experiences and content visibility on social media.
 \end{abstract}
 
+% \includegraphics[width=\textwidth]{fiit.eps}
 
+\section{Introduction} 
 
-\section{Úvod}
+In a modern era where social media has become an integral part of daily life, personalized recommendation systems play a
+crucial role in enhancing marketing, entertainment, and the overall user experience. By predicting and delivering content
+that resonates with users, these systems contribute significantly to social media growth, fostering higher user engagement
+and supporting an interconnected ecosystem of content creators, businesses, and users alike.
 
-Motivujte čitateľa a vysvetlite, o čom píšete. Úvod sa väčšinou nedelí na časti.
+While these systems are built upon statistical and mathematical foundations, practical implementations vary widely.
+They often combine several approaches, including complex algorithms, databases, big data analytics, machine learning,
+and deep learning techniques, to optimize predictions and deliver tailored content. 
 
-Uveďte explicitne štruktúru článku. Tu je nejaký príklad.
-Základný problém, ktorý bol naznačený v úvode, je podrobnejšie vysvetlený v časti~\ref{nejaka}.
-Dôležité súvislosti sú uvedené v častiach~\ref{dolezita} a~\ref{dolezitejsia}.
-Záverečné poznámky prináša časť~\ref{zaver}.
+However, the reliance on extensive user data raises privacy concerns, as large amounts of personal information must
+be stored and processed. Additionally, biases within these algorithms can lead to unintended consequences, potentially
+skewing recommendations or enabling exploitation. This paper will explore the methodologies behind recommendation systems,
+their societal impacts, and the balance between personalization and ethical considerations.
 
+\section{Recommendation Systems Overview} \label{rec_sys_overview}
+The primary goal of recommendation systems (RS) is to suggest content, connections, posts, or advertisements that may interest the end user. Social media technology has evolved over time and is now embedded in blogs, forums, and other digital forms, facilitating community building, content sharing, and information exchange~\cite{anandhan2018social}. These systems have become integral in helping users navigate vast amounts of content efficiently, allowing platforms to deliver more personalized experiences.
 
-
-\section{Nejaká časť} \label{nejaka}
-
-Z obr.~\ref{f:rozhod} je všetko jasné. 
-
-\begin{figure*}[tbh]
-\centering
-%\includegraphics[scale=1.0]{diagram.pdf}
-Aj text môže byť prezentovaný ako obrázok. Stane sa z neho označný plávajúci objekt. Po vytvorení diagramu zrušte znak \texttt{\%} pred príkazom \verb|\includegraphics| označte tento riadok ako komentár (tiež pomocou znaku \texttt{\%}).
-\caption{Rozhodujúci argument.}
-\label{f:rozhod}
-\end{figure*}
-
-
-
-\section{Iná časť} \label{ina}
-
-Základným problémom je teda\ldots{} Najprv sa pozrieme na nejaké vysvetlenie (časť~\ref{ina:nejake}), a potom na ešte nejaké (časť~\ref{ina:nejake}).\footnote{Niekedy môžete potrebovať aj poznámku pod čiarou.}
-
-Môže sa zdať, že problém vlastne nejestvuje\cite{Coplien:MPD}, ale bolo dokázané, že to tak nie je~\cite{Czarnecki:Staged, Czarnecki:Progress}. Napriek tomu, aj dnes na webe narazíme na všelijaké pochybné názory\cite{PLP-Framework}. Dôležité veci možno \emph{zdôrazniť kurzívou}.
-
-
-\subsection{Nejaké vysvetlenie} \label{ina:nejake}
-
-Niekedy treba uviesť zoznam:
-
+\subsection{Social Media Overview}
+Social media platforms can be classified into several categories~\cite{anandhan2018social} based on their primary function and user interaction patterns:
 \begin{itemize}
-\item jedna vec
-\item druhá vec
-	\begin{itemize}
-	\item x
-	\item y
-	\end{itemize}
+    \item \textbf{Digital Libraries:} Platforms like Pinterest and Flickr act as digital libraries where users can share, categorize, and access large collections of images, documents, or other resources. Recommendation systems on these platforms focus on content discovery, suggesting relevant media or documents based on specific, determined user preferences.
+    \item \textbf{Forums:} Platforms such as Reddit and Stack Overflow allow users to engage in topic-focused discussions and share information. Here, recommendation systems suggest relevant threads, discussions, or posts based on user interactions and interest tags.
+    \item \textbf{Blogs:} Platforms like Medium and Tumblr are designed for content creation, where users can write articles, stories, or posts. Recommendation systems on blogs aim to match readers with articles that align with their interests, reading history, and trending topics.
+    \item \textbf{Social Networks:} Platforms such as Facebook, Instagram, and Twitter are built around user-to-user connections and content sharing. These platforms rely heavily on recommendation systems to suggest new connections, posts, and advertisements, fostering interaction between content creators, advertisers, and consumers.
+    \item \textbf{Other:} Platforms like YouTube blend multiple features from the above categories, creating a multi-functional space that combines video sharing, social networking, and content discovery.
 \end{itemize}
 
-Ten istý zoznam, len číslovaný:
+One of the most widespread applications of recommendation systems is within social networks such as Facebook, Instagram, and Twitter. These systems play a pivotal role in connecting content creators and advertisers with consumers by suggesting relevant posts, trending topics, or advertisements tailored to user preferences. As users engage with these platforms, recommendation systems analyze behavior, including likes, shares, comments, and search queries, to curate personalized content. This personalization aims to enhance user engagement, increase time spent on the platform, and improve overall user satisfaction.
 
-\begin{enumerate}
-\item jedna vec
-\item druhá vec
-	\begin{enumerate}
-	\item x
-	\item y
-	\end{enumerate}
-\end{enumerate}
+\subsection{Types of Recommendation Systems}
+The algorithms behind personalized recommendation systems are typically classified into content-based filtering and collaborative filtering \cite{raghavendra2018personalized}.
 
+In content-based filtering, the algorithm constructs a profile of the target user, which is then used to determine what items—such as posts or advertisements—would be appropriate to recommend. This approach works by first identifying item characteristics and assigning them keywords and tags. Using machine learning algorithms, decision trees, and clustering techniques, the system recommends items with features similar to those previously liked or positively reviewed by the user~\cite{raghavendra2018personalized}\cite{contentvscollaborative}.
 
-\subsection{Ešte nejaké vysvetlenie} \label{ina:este}
+In collaborative filtering, the recommendation system bases its suggestions on user behavior analysis. By comparing patterns and preferences across a large user base, collaborative filtering algorithms identify similarities between users and recommend items that similar users have interacted with.
 
-\paragraph{Veľmi dôležitá poznámka.}
-Niekedy je potrebné nadpisom označiť odsek. Text pokračuje hneď za nadpisom.
+In addition to content-based and collaborative filtering, two lesser-known approaches can also contribute to personalized recommendations: humanistic and social information-based filtering, and knowledge-based filtering. Humanistic and social information-based filtering relies on data gathered during user registration or from social interactions. It leverages demographic information and social connections to tailor suggestions. On the other hand, knowledge-based filtering utilizes external knowledge sources to generate recommendations, independent of user behavior or content similarity. While these approaches are not as widely used as the former two, they provide additional perspectives for delivering personalized content.
 
+\section{Data collection and privacy issues} \label{data_issues}
+With the growth of use of recommendation systems, new problems arise, such as data collection and privacy issues.
+Recommendation systems collect massive arrays of user base of each user, such as gender, location, occupation, search history, likes, views and so on.
+There are three \cite{PrivacyProtectionSurvey} main stages in the process of personalized service that may course users privacy concerns:
+\begin{itemize}
+    \item \textbf{User Modeling:} User's personal information preferences and need are collected. This data is obtained explicitly, when provided by the user himself or herself, or implicitly, such as tracking user's search history, likes, etc. After that, this dataset should be represented by appropriate data structure of the user model for further processing and calculation. Privacy issues may arise at this stage in improper access, collection, transmission etc.
+    \item \textbf{Calculation:} At this stage calculations are carried out to make later recommendation. Privacy issues here may arise in improper analysis, merging of data, etc.
+    \item \textbf{Result generation:} This is the last stage where recommendation system gets results after calculation. Privacy concerns arising from this stage include improper analysis, transmission of data, etc.
+\end{itemize}
 
+\section{Content manipulation and transparency challenges} \label{content_manipulation}
+Recommendation systems are frequently targeted by malicious attacks designed to manipulate the visibility of posts, advertisements, or other information, often to achieve maximum exposure or push specific agendas~\cite{propagandasafety}. Collaborative filtering, when not properly safeguarded, is particularly vulnerable to such attacks~\cite{ManipulationAttacks}. Since most modern recommendation systems employ a hybrid approach combining collaborative and content-based filtering, it is reasonable to conclude that all systems are susceptible to manipulation unless robust countermeasures are implemented by social media platforms.
 
-\section{Dôležitá časť} \label{dolezita}
+One of those attacks is manipulation attack. \cite{ManipulationAttacks}. In this scenario, collaborative filtering can be compromised by introducing a substantial number of fake accounts controlled by the attacker. These accounts interact with specific content, influencing the system to recommend it to a broader audience. This raises several concerns, particularly because collaborative filtering is among the most widely adopted and effective recommendation algorithms. Platforms must assess the risk of potential attackers, such as political entities aiming to influence older demographics or authoritarian governments seeking to shape young users' opinions.
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.4\textwidth, height=0.3\textheight]{manipulation.eps}
+    \caption{Diagram showing how recommendation system manipulation works}
+    \label{fig:recommendation_manipulation}
+\end{figure}
 
+As Figure \ref{fig:recommendation_manipulation} shows, third parties may force certain group of similar users to view certain content, by imitating similarity.
 
+Effective countermeasures \cite{ManipulationAttacks} to mitigate these risks include:
 
-\section{Ešte dôležitejšia časť} \label{dolezitejsia}
+\begin{itemize}
+    \item \textbf{Preventing mass account registration.} Collaborative filtering relies on extensive user engagement with specific content to influence recommendations. By implementing strict controls to prevent large-scale fake account creation, platforms can significantly reduce the risk of low-effort campaigns designed to bias the system.
+    \item \textbf{Restricting new users influence on recommendations.} Although it is challenging to identify malicious intent at the registration stage, limiting the initial impact of new users on the recommendation system can mitigate potential biases. This approach ensures that even if fake accounts are created, their effect on recommendations remains minimal.
+    \item \textbf{Limiting the influence of low-activity users.} Fake accounts are often characterized by minimal activity. Social media platforms can prioritize input from highly active users while de-emphasizing contributions from less active ones. While this may disadvantage legitimate low-activity users, it enhances the system's overall robustness against manipulation.
+    \item \textbf{Detecting suspicious behavior.} Fake accounts typically exhibit behavioral patterns that differ from those of genuine users. Platforms can employ machine learning techniques to identify and flag anomalies, such as automated activity or coordinated actions, to detect and neutralize these accounts proactively.
+\end{itemize}
 
+\subsection{Practical approaches}
+There are multiple approaches used in the modern social media platform to secure their space and ultimately recommendation systems from third-party influences.
+To prevent masses of fake accounts flooding into the platform, developers typically make registration requirements. Such requirements could be
+\begin{itemize}
+    \item \textbf{Temporary email address restriction.} Platforms may ban certain email providers so that users have to have legitimate email addresses. If on the platform every user should have unique email address, it will make slight problems for the malicious parties, but not significant, as they could, theoretically, create their own mail server which will not be in the ban list of the social media platform.
+    \item \textbf{Phone number confirmation.} This is, by far, one of the most effective countermeasures against mass fake registration. The reason is, comparing to the email addresses, that acquiring such amount of phone numbers is a relatively challenging task.
+    \item \textbf{CAPTCHA.} CAPTCHA is acronym, which stands for Completely Automated Public Turing test to tell Computers and Humans Apart. \cite{singh2014survey} CAPTCHA presents new user with a certain task, which is trivial to a human being, but too complicated to be solved by automated scripts. The tasks could be text-based, image-based or invisible.
+\end{itemize}
 
+To detect suspicious behavour, social media platforms use an array of techniques. Accounts which produced suspicious activity, depending on software implementation, company policy and situation, either get a ban, or get challenged with a CAPTCHA, to verify if it is a real human.
 
+\subsection{Using CAPTCHA against registered fake accounts}
+Besides phone number confirmation, CAPTCHA remains one of the most crucial methods and actively used by social media platforms.
 
-\section{Záver} \label{zaver} % prípadne iný variant názvu
+There are three main properties \cite{singh2014survey} CAPTCHA must satisfy
+\begin{itemize}
+    \item CAPTCHAs must be easily solvable for humans, otherwise they are messing up app usage
+    \item It should be an automated proccess, machine must generate tasks and in the same automated way grade answers
+    \item It must be hard for another automated system to solve, not knowing generation algorithm
+\end{itemize}
 
+Table~\ref{tab:captcha_types} illustrates various types of CAPTCHA and their respective features and drawbacks~\cite{singh2014survey}.
+Text-based CAPTCHAs are the simplest and most widely used, but they are vulnerable to Optical Character Recognition (OCR) techniques, which bots can exploit.
+Image-based CAPTCHAs add a layer of difficulty by requiring users to identify objects or patterns,
+yet they pose accessibility challenges for visually impaired users.
+Similarly, audio-based CAPTCHAs are designed for such users but require a good understanding of spoken language,
+which can create difficulties due to similar-sounding characters.
+Video-based CAPTCHAs, though highly secure, require significant bandwidth and can be cumbersome to download.
+Puzzle-based CAPTCHAs challenge users with time-intensive tasks and are less commonly employed due to their complexity~\cite{singh2014survey}.
 
+\begin{table*}[t] \label{tab:captcha_comparison}
+    \centering
+    \caption{Comparison of Different CAPTCHA Types}
+    \begin{tabular}{|l|p{0.35\textwidth}|p{0.35\textwidth}|}
+    \hline
+    \textbf{Type of CAPTCHA} & \textbf{Features} & \textbf{Drawbacks} \\ \hline
+    Text-Based & Simple to implement, widely used & Can be solved by OCR, may confuse users due to distortion \\ \hline
+    Image-Based & Requires identifying objects or patterns & Not user-friendly for visually impaired users \\ \hline
+    Audio-Based & Designed for visually impaired users & Requires good understanding of spoken language, similar sounds can confuse \\ \hline
+    Video-Based & Uses dynamic visual content for challenges & Requires high bandwidth, difficult to download \\ \hline
+    Puzzle-Based & Users solve puzzles to pass & Time-consuming, challenging for users unfamiliar with puzzles \\ \hline
+    \end{tabular}
+    \label{tab:captcha_types}
+\end{table*}
 
-%\acknowledgement{Ak niekomu chcete poďakovať\ldots}
+Despite their effectiveness, CAPTCHAs are not foolproof.
+Advances in artificial intelligence have enabled bots to bypass traditional CAPTCHAs, particularly text-based systems.
+To counter this, social media platforms are adopting newer approaches, such as behavior-based CAPTCHA systems like reCAPTCHA v3,
+which analyze user interactions to distinguish humans from bots without requiring explicit challenges.
+The ongoing evolution of CAPTCHA systems highlights the need for continuous innovation to stay ahead of increasingly sophisticated bot technologies.
+As security demands grow, the integration of adaptive techniques and multi-layered approaches remains critical in preserving the integrity of
+user registration processes and online interactions.
 
+\section{Future challenges in recommendation systems} \label{future_challenges}
+Recommendation systems have become an essential part of digital platforms, but they face ongoing challenges that need to be addressed to improve their effectiveness and fairness.
+Privacy concerns are also growing, especially with increasing regulations like GDPR. To address this, federated learning is emerging as a solution. This approach allows models to be trained on user devices, reducing the need to send personal data to centralized servers. However, federated learning systems are not immune to attacks, such as "poisoning," where malicious data is introduced to manipulate the recommendations. Ensuring the security and privacy of federated systems remains a major research focus. \cite{marcuzzo2022recommendation}
+The evaluation of recommendation systems is another ongoing challenge. Currently, different studies use varying datasets and methods for evaluation, making it difficult to compare results and improve models consistently. Standardized benchmarks, such as the MIND dataset, are necessary to ensure fair and reproducible evaluations.
+Lastly, robustness is crucial. Recommendation systems must be resilient to fake feedback or manipulative behavior from users, such as fake ratings or coordinated actions. Additionally, as user preferences change over time, recommendation systems need to adapt to stay relevant. Ensuring that these systems remain effective and secure in dynamic environments is essential for their long-term success.
 
-% týmto sa generuje zoznam literatúry z obsahu súboru literatura.bib podľa toho, na čo sa v článku odkazujete
+\section{Conclusion} \label{conclusion}
+Personalized recommendation systems have become fundamental in shaping user experiences on social media platforms, significantly enhancing user engagement and content discovery. These systems leverage complex algorithms, including collaborative and content-based filtering, to suggest tailored content based on user behavior and preferences. While these systems contribute to the growth and interactivity of social media, they also present challenges regarding data privacy and algorithmic manipulation.
+
+The collection and analysis of vast amounts of personal data are essential to the functioning of recommendation systems but raise critical privacy concerns. Furthermore, the manipulation of these systems by malicious actors, seeking to push specific agendas, has exposed vulnerabilities within the algorithms, particularly in the areas of collaborative filtering. Addressing these issues requires robust countermeasures, such as enhanced verification processes, user activity monitoring, and machine learning-based anomaly detection.
+
+The future of recommendation systems lies in achieving a balance between personalization and ethical considerations. Transparent algorithms, responsible data collection practices, and safeguards against manipulation are key to fostering a secure and user-friendly environment. As social media platforms continue to evolve, it is essential for developers to prioritize user privacy, fairness, and transparency to ensure these systems remain beneficial and trustworthy.
+
+\nocite{*}
 \bibliography{literatura}
-\bibliographystyle{plain} % prípadne alpha, abbrv alebo hociktorý iný
+\bibliographystyle{plain}
 \end{document}
