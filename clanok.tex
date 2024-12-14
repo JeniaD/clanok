@@ -83,17 +83,16 @@ In content-based filtering, the algorithm constructs a profile of the target use
 
 In collaborative filtering, the recommendation system bases its suggestions on user behavior analysis. By comparing patterns and preferences across a large user base, collaborative filtering algorithms identify similarities between users and recommend items that similar users have interacted with.
 
-Another two, less significant approaches would be based on humanistic and social information - it is when system provides recommendations by
-analyzing the information provided by users when they register, or knowledge-based, which is providing recommendations based on external knowledge
+In addition to content-based and collaborative filtering, two lesser-known approaches can also contribute to personalized recommendations: humanistic and social information-based filtering, and knowledge-based filtering. Humanistic and social information-based filtering relies on data gathered during user registration or from social interactions. It leverages demographic information and social connections to tailor suggestions. On the other hand, knowledge-based filtering utilizes external knowledge sources to generate recommendations, independent of user behavior or content similarity. While these approaches are not as widely used as the former two, they provide additional perspectives for delivering personalized content.
 
 \section{Data collection and privacy issues} \label{data_issues}
 With the growth of use of recommendation systems, new problems arise, such as data collection and privacy issues.
 Recommendation systems collect massive arrays of user base of each user, such as gender, location, occupation, search history, likes, views and so on.
-There are three \cite{PrivacyProtectionSurvey} main stages in the process of presonalized service that may course users privacy concerns:
+There are three \cite{PrivacyProtectionSurvey} main stages in the process of personalized service that may course users privacy concerns:
 \begin{itemize}
-    \item \textbf{User Modeling:} User's personal information preferences and need are collected. This data is obtained explicitly, when provided by the user himself or herself, or implicitly, such as tracking user's search history, likes, etc. After that, this dataset should be represented by appropriate data structure of the user model for further processing and calculation. Privacy issues may arise at this stage in impoper access, collection, transmission etc.
-    \item \textbf{Calculation:} At this stage calculations are carried out to make later recommendation. Privacy issues here may arise in impoper analysis, merging of data, etc.
-    \item \textbf{Result generation:} This is the last stage where recommendation system gets results after calculation. Privacy concerns arising from this stage include impoper analysis, transmission of data, etc.
+    \item \textbf{User Modeling:} User's personal information preferences and need are collected. This data is obtained explicitly, when provided by the user himself or herself, or implicitly, such as tracking user's search history, likes, etc. After that, this dataset should be represented by appropriate data structure of the user model for further processing and calculation. Privacy issues may arise at this stage in improper access, collection, transmission etc.
+    \item \textbf{Calculation:} At this stage calculations are carried out to make later recommendation. Privacy issues here may arise in improper analysis, merging of data, etc.
+    \item \textbf{Result generation:} This is the last stage where recommendation system gets results after calculation. Privacy concerns arising from this stage include improper analysis, transmission of data, etc.
 \end{itemize}
 
 \section{Content manipulation and transparency challenges} \label{content_manipulation}
@@ -101,15 +100,6 @@ Recommendation systems are frequently targeted by malicious attacks designed to 
 
 One of those attacks is manipulation attack. \cite{ManipulationAttacks}. In this scenario, collaborative filtering can be compromised by introducing a substantial number of fake accounts controlled by the attacker. These accounts interact with specific content, influencing the system to recommend it to a broader audience. This raises several concerns, particularly because collaborative filtering is among the most widely adopted and effective recommendation algorithms. Platforms must assess the risk of potential attackers, such as political entities aiming to influence older demographics or authoritarian governments seeking to shape young users' opinions.
 
-% \begin{figure}[h!]
-%     \centering
-%     \includegraphics[width=\textwidth]{manipulation.eps}
-%     \caption{Diagram showing how recommendation system manipulation works}
-%     \label{fig:recommendation_manipulation}
-% \end{figure}
-
-% \includegraphics[width=\textwidth]{manipulation.eps}
-% \includegraphics[width=0.8\textwidth]{manipulation.eps}  % 80% of text width
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.4\textwidth, height=0.3\textheight]{manipulation.eps}
@@ -133,11 +123,11 @@ There are multiple approaches used in the modern social media platform to secure
 To prevent masses of fake accounts flooding into the platform, developers typically make registration requirements. Such requirements could be
 \begin{itemize}
     \item \textbf{Temporary email address restriction.} Platforms may ban certain email providers so that users have to have legitimate email addresses. If on the platform every user should have unique email address, it will make slight problems for the malicious parties, but not significant, as they could, theoretically, create their own mail server which will not be in the ban list of the social media platform.
-    \item \textbf{Phone number confirmation.} This is, by far, one of the most effective countermeasures against mass fake registration. The reason is, comparing to the email addresses, that acquiring such amount of phone numbers is a relatively challanging task.
-    \item \textbf{CAPTCHA.} CAPTCHA is acronim, which stands for Completely Automated Public Turing test to tell Computers and Humans Apart. \cite{singh2014survey} CAPTCHA presents new user with a certain task, which is trivial to a human being, but too complicated to be solved by automated scripts. The tasks could be text-based, image-based or invisible.
+    \item \textbf{Phone number confirmation.} This is, by far, one of the most effective countermeasures against mass fake registration. The reason is, comparing to the email addresses, that acquiring such amount of phone numbers is a relatively challenging task.
+    \item \textbf{CAPTCHA.} CAPTCHA is acronym, which stands for Completely Automated Public Turing test to tell Computers and Humans Apart. \cite{singh2014survey} CAPTCHA presents new user with a certain task, which is trivial to a human being, but too complicated to be solved by automated scripts. The tasks could be text-based, image-based or invisible.
 \end{itemize}
 
-To detect suspicious behavour, social media platforms use an array of techniques. Accounts which produced suspicious activity, depending on software implementation, company policy and situation, either get a ban, or get challanged with a CAPTCHA, to verify if it is a real human.
+To detect suspicious behavour, social media platforms use an array of techniques. Accounts which produced suspicious activity, depending on software implementation, company policy and situation, either get a ban, or get challenged with a CAPTCHA, to verify if it is a real human.
 
 \subsection{Using CAPTCHA against registered fake accounts}
 Besides phone number confirmation, CAPTCHA remains one of the most crucial methods and actively used by social media platforms.
@@ -181,12 +171,18 @@ The ongoing evolution of CAPTCHA systems highlights the need for continuous inno
 As security demands grow, the integration of adaptive techniques and multi-layered approaches remains critical in preserving the integrity of
 user registration processes and online interactions.
 
-\section{Future challanges in recommendation systems} \label{future_challanges}
+\section{Future challenges in recommendation systems} \label{future_challenges}
+Recommendation systems have become an essential part of digital platforms, but they face ongoing challenges that need to be addressed to improve their effectiveness and fairness.
+Privacy concerns are also growing, especially with increasing regulations like GDPR. To address this, federated learning is emerging as a solution. This approach allows models to be trained on user devices, reducing the need to send personal data to centralized servers. However, federated learning systems are not immune to attacks, such as "poisoning," where malicious data is introduced to manipulate the recommendations. Ensuring the security and privacy of federated systems remains a major research focus. \cite{marcuzzo2022recommendation}
+The evaluation of recommendation systems is another ongoing challenge. Currently, different studies use varying datasets and methods for evaluation, making it difficult to compare results and improve models consistently. Standardized benchmarks, such as the MIND dataset, are necessary to ensure fair and reproducible evaluations.
+Lastly, robustness is crucial. Recommendation systems must be resilient to fake feedback or manipulative behavior from users, such as fake ratings or coordinated actions. Additionally, as user preferences change over time, recommendation systems need to adapt to stay relevant. Ensuring that these systems remain effective and secure in dynamic environments is essential for their long-term success.
 
 \section{Conclusion} \label{conclusion}
-The evolution of personalized recommendation systems has transformed social media, enabling platforms to deliver more relevant and engaging content to users. By leveraging sophisticated algorithms, machine learning, and big data analytics, these systems are able to predict user preferences and deliver tailored experiences that increase platform engagement and satisfaction. However, this innovation comes with significant challenges, particularly in the realms of data privacy and content manipulation. As recommendation systems grow in complexity, concerns about user privacy, ethical implications, and transparency continue to mount. 
+Personalized recommendation systems have become fundamental in shaping user experiences on social media platforms, significantly enhancing user engagement and content discovery. These systems leverage complex algorithms, including collaborative and content-based filtering, to suggest tailored content based on user behavior and preferences. While these systems contribute to the growth and interactivity of social media, they also present challenges regarding data privacy and algorithmic manipulation.
 
-The societal impact of these systems is profound, influencing not only individual user experiences but also public opinion, trends, and information dissemination. Striking a balance between personalization and ethical responsibility will be crucial for the future of social media. To foster trust and maintain user autonomy, platforms must adopt transparent policies, ensure robust privacy protections, and address potential biases within their recommendation algorithms. As technology advances, ongoing research and open discourse on the ethical dimensions of recommendation systems will be essential in shaping a socially responsible digital ecosystem.
+The collection and analysis of vast amounts of personal data are essential to the functioning of recommendation systems but raise critical privacy concerns. Furthermore, the manipulation of these systems by malicious actors, seeking to push specific agendas, has exposed vulnerabilities within the algorithms, particularly in the areas of collaborative filtering. Addressing these issues requires robust countermeasures, such as enhanced verification processes, user activity monitoring, and machine learning-based anomaly detection.
+
+The future of recommendation systems lies in achieving a balance between personalization and ethical considerations. Transparent algorithms, responsible data collection practices, and safeguards against manipulation are key to fostering a secure and user-friendly environment. As social media platforms continue to evolve, it is essential for developers to prioritize user privacy, fairness, and transparency to ensure these systems remain beneficial and trustworthy.
 
 \nocite{*}
 \bibliography{literatura}
